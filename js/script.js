@@ -425,8 +425,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  calcTotal();
-
   function getStaticInfo(parentSelector, activeClass) {
     const elements = document.querySelectorAll(`${parentSelector} div`);
 
@@ -447,9 +445,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  getStaticInfo('#gender', 'calculating__choose-item_active');
-  getStaticInfo('.calculating__choose_big', 'calculating__choose-item_active');
-
   function getDynamicInfo(selector) {
     const input = document.querySelector(selector);
 
@@ -469,6 +464,11 @@ document.addEventListener("DOMContentLoaded", () => {
       calcTotal();
     })
   }
+
+  calcTotal();
+
+  getStaticInfo('#gender', 'calculating__choose-item_active');
+  getStaticInfo('.calculating__choose_big', 'calculating__choose-item_active');
 
   getDynamicInfo('#height');
   getDynamicInfo('#weight');
