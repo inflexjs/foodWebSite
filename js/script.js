@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
         price
       }) => {
         new CardMenu(img, altimg, title, descr, price, '.menu .container').render();
-      })
+      });
     });
 
   // Forms
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   slides.forEach(slide => {
     slide.style.width = width;
-  })
+  });
 
   slider.style.position = "relative";
 
@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     currentIndex();
-  })
+  });
 
   prev.addEventListener("click", () => {
     if (offset == 0) {
@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     currentIndex();
-  })
+  });
 
   dots.forEach(dot => {
     dot.addEventListener("click", (e) => {
@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       currentIndex();
     });
-  })
+  });
 
   // Calc
   const result = document.querySelector(".calculating__result span");
@@ -507,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       calcTotal();
-    })
+    });
   }
 
   initLocalSettings();
