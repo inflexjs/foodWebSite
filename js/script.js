@@ -413,21 +413,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let sex, height, weight, age, ratio;
 
-  if (localStorage.getItem('sex')) {
-    sex = localStorage.getItem('sex');
-  } else {
-    sex = 'female';
-    localStorage.setItem('sex', 'female');
+  function initLocalSettings() {
+    if (localStorage.getItem('sex')) {
+      sex = localStorage.getItem('sex');
+    } else {
+      sex = 'female';
+      localStorage.setItem('sex', 'female');
+    }
+
+    if (localStorage.getItem('ratio')) {
+      ratio = localStorage.getItem('ratio');
+    } else {
+      ratio = 'female';
+      localStorage.setItem('ratio', 1.375);
+    }
   }
 
-  if (localStorage.getItem('ratio')) {
-    ratio = localStorage.getItem('ratio');
-  } else {
-    ratio = 'female';
-    localStorage.setItem('ratio', 1.375);
-  }
-
-  function initLocalSettings(selector, activeClass) {
+  function setLocalSettings(selector, activeClass) {
     const elements = document.querySelectorAll(selector);
 
     elements.forEach(elem => {
@@ -508,8 +510,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  initLocalSettings('#gender div', 'calculating__choose-item_active');
-  initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
+  initLocalSettings();
+
+  setLocalSettings('#gender div', 'calculating__choose-item_active');
+  setLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
 
   calcTotal();
 
