@@ -328,6 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const indicators = document.createElement('ol'),
     dots = [];
+
   indicators.classList.add("carousel-indicators");
   slider.append(indicators);
 
@@ -335,9 +336,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const dot = document.createElement('li');
     dot.setAttribute("data-slide-to", i + 1);
     dot.classList.add("dot");
+
     if (i == 0) {
       dot.style.opacity = 1;
     }
+
     indicators.append(dot);
     dots.push(dot);
   }
@@ -353,12 +356,17 @@ document.addEventListener("DOMContentLoaded", () => {
     dots[slideIndex - 1].style.opacity = 1;
   }
 
+  function deleteNotDigits(str) {
+    return +str.replace(/\D/g, "");
+  }
+
   next.addEventListener("click", () => {
-    if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+    if (offset == deleteNotDigits(width) * (slides.length - 1)) {
       offset = 0;
     } else {
-      offset += +width.slice(0, width.length - 2);
+      offset += deleteNotDigits(width);
     }
+
     slidesField.style.transform = `translateX(-${offset}px)`;
 
     if (slideIndex == slides.length) {
@@ -372,10 +380,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   prev.addEventListener("click", () => {
     if (offset == 0) {
-      offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+      offset = deleteNotDigits(width) * (slides.length - 1);
     } else {
-      offset -= +width.slice(0, width.length - 2);
+      offset -= deleteNotDigits(width);
     }
+
     slidesField.style.transform = `translateX(-${offset}px)`;
 
     if (slideIndex == 1) {
@@ -392,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const slideTo = e.target.getAttribute("data-slide-to");
 
       slideIndex = slideTo;
-      offset = +width.slice(0, width.length - 2) * (slideTo - 1);
+      offset = deleteNotDigits(width) * (slideTo - 1);
       slidesField.style.transform = `translateX(-${offset}px)`;
 
       currentIndex();
