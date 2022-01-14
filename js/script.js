@@ -104,6 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   }
 
+  function showModelByScroll() {
+    if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+      openModal();
+      window.removeEventListener("scroll", showModelByScroll);
+    }
+  }
+
   modalOpenBtn.forEach((item) => {
     item.addEventListener("click", openModal);
   });
@@ -121,13 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const modalTimerId = setTimeout(openModal, 50000);
-
-  function showModelByScroll() {
-    if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
-      openModal();
-      window.removeEventListener("scroll", showModelByScroll);
-    }
-  }
 
   window.addEventListener("scroll", showModelByScroll);
 
@@ -173,15 +173,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const getResource = async (url) => {
-    const res = await fetch(url);
+  // const getResource = async (url) => {
+  //   const res = await fetch(url);
 
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, status ${res.status}`);
-    }
+  //   if (!res.ok) {
+  //     throw new Error(`Could not fetch ${url}, status ${res.status}`);
+  //   }
 
-    return await res.json();
-  };
+  //   return await res.json();
+  // };
 
   // getResource("http://localhost:3000/menu")
   //   .then(data => {
