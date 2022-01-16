@@ -42,4 +42,4 @@ function modal() {
 	window.addEventListener("scroll", showModelByScroll);
 }
 
-module.exports = modal;
+export default modal;

@@ -78,4 +78,4 @@ function cards() {
 		});
 }
 
-module.exports = cards;
+export default cards;
