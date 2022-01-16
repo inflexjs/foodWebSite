@@ -309,10 +309,10 @@ function forms(modalTimerId) {
 		const thanksModal = document.createElement("div");
 		thanksModal.classList.add("modal__dialog");
 		thanksModal.innerHTML = `
-    <div class="modal__content">
-      <div data-close class="modal__close"> x </div>
-      <div class="modal__title">${message}</div>
-    </div>
+			<div class="modal__content">
+					<div class="modal__close" data-close>×</div>
+					<div class="modal__title">${message}</div>
+			</div>
     `;
 
 		document.querySelector('.modal').append(thanksModal);
@@ -391,6 +391,7 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
+
 
 
 /***/ }),
@@ -664,11 +665,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])();
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])("[data-modal]", ".modal", modalTimerId);
-  (0,_modules_cards__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_modules_cards__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  (0,_modules_calc__WEBPACK_IMPORTED_MODULE_5__["default"])();
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])(modalTimerId);
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  (0,_modules_calc__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 })();
 

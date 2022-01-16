@@ -3,8 +3,8 @@ import modal from './modules/modal';
 import cards from './modules/cards';
 import timer from './modules/forms';
 import slider from './modules/slider';
-import calc from './modules/calc';
 import forms from './modules/forms';
+import calc from './modules/calc';
 import {openModal} from './modules/modal';
 
 
@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tabs();
   modal("[data-modal]", ".modal", modalTimerId);
-  cards();
   timer();
+  cards();
+  calc();
   forms(modalTimerId);
   slider();
-  calc();
 });

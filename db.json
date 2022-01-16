@@ -22,16 +22,5 @@
       "price": 21
     }
   ],
-  "requests": [
-    {
-      "name": "POD Livonia [3PP]",
-      "phone": "+79377189577",
-      "id": 1
-    },
-    {
-      "name": "POD Livonia [3PP]",
-      "phone": "+79377189577",
-      "id": 2
-    }
-  ]
+  "requests": []
 }
