@@ -144,6 +144,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
+
+
 function cards() {
 	// Card template
 	class CardMenu {
@@ -187,41 +190,12 @@ function cards() {
 		}
 	}
 
-	// const getResource = async (url) => {
-	//   const res = await fetch(url);
-
-	//   if (!res.ok) {
-	//     throw new Error(`Could not fetch ${url}, status ${res.status}`);
-	//   }
-
-	//   return await res.json();
-	// };
-
-	// getResource("http://localhost:3000/menu")
-	//   .then(data => {
-	//     data.forEach(({
-	//       img,
-	//       altimg,
-	//       title,
-	//       descr,
-	//       price
-	//     }) => {
-	//       new CardMenu(img, altimg, title, descr, price, '.menu .container', 'menu__item').render();
-	//     })
-	//   })
-
-	axios.get("http://localhost:3000/menu")
-		.then(data => {
-			data.data.forEach(({
-				img,
-				altimg,
-				title,
-				descr,
-				price
-			}) => {
-				new CardMenu(img, altimg, title, descr, price, '.menu .container').render();
-			});
+	(0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)("http://localhost:3000/menu")
+	.then(data => {
+		data.forEach(({ img, altimg, title, descr, price}) => {
+			new CardMenu(img, altimg, title, descr, price, '.menu .container', 'menu__item').render();
 		});
+	});
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cards);
@@ -239,11 +213,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
 
 
-function forms(modalTimerId) {
+
+function forms(formSelector, modalTimerId) {
 	// Forms
-	const forms = document.querySelectorAll("form");
+	const forms = document.querySelectorAll(formSelector);
 
 	const message = {
 		loading: 'img/form/spinner.svg',
@@ -254,18 +230,6 @@ function forms(modalTimerId) {
 	forms.forEach(item => {
 		bindPostData(item);
 	});
-
-	const postData = async (url, data) => {
-		const res = await fetch(url, {
-			method: "POST",
-			headers: {
-				'Content-type': 'application/json'
-			},
-			body: data
-		});
-
-		return await res.json();
-	};
 
 	function bindPostData(form) {
 		form.addEventListener("submit", (e) => {
@@ -285,7 +249,7 @@ function forms(modalTimerId) {
 
 			const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-			postData('http://localhost:3000/requests', json)
+			(0,_services_services__WEBPACK_IMPORTED_MODULE_1__.postData)('http://localhost:3000/requests', json)
 				.then(data => {
 					console.log(data);
 					showThanksModal(message.success);
@@ -579,6 +543,57 @@ function tabs() {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);
 
+/***/ }),
+
+/***/ "./js/services/services.js":
+/*!*********************************!*\
+  !*** ./js/services/services.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "postData": () => (/* binding */ postData),
+/* harmony export */   "getResource": () => (/* binding */ getResource)
+/* harmony export */ });
+const postData = async (url, data) => {
+	const res = await fetch(url, {
+		method: "POST",
+		headers: {
+			'Content-type': 'application/json'
+		},
+		body: data
+	});
+
+	return await res.json();
+};
+
+async function getResource(url) {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`Could not fetch ${url}, status ${res.status}`);
+  }
+
+  return await res.json();
+}
+
+// axios.get("http://localhost:3000/menu")
+// .then(data => {
+// 	data.data.forEach(({
+// 		img,
+// 		altimg,
+// 		title,
+// 		descr,
+// 		price
+// 	}) => {
+// 		new CardMenu(img, altimg, title, descr, price, '.menu .container').render();
+// 	});
+// });
+
+
+
+
 /***/ })
 
 /******/ 	});
@@ -668,7 +683,7 @@ document.addEventListener("DOMContentLoaded", () => {
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])(modalTimerId);
+  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])("form", modalTimerId);
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 })();
