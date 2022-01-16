@@ -1,6 +1,6 @@
 import {closeModal,	openModal} from './modal';
 
-function forms() {
+function forms(modalTimerId) {
 	// Forms
 	const forms = document.querySelectorAll("form");
 
@@ -63,7 +63,7 @@ function forms() {
 		const prevModalDialog = document.querySelector(".modal__dialog");
 
 		prevModalDialog.style.display = "none";
-		openModal();
+		openModal('.modal', modalTimerId);
 
 		const thanksModal = document.createElement("div");
 		thanksModal.classList.add("modal__dialog");
@@ -74,12 +74,12 @@ function forms() {
     </div>
     `;
 
-		modalWindow.append(thanksModal);
+		document.querySelector('.modal').append(thanksModal);
 
 		setTimeout(() => {
 			thanksModal.remove();
 			prevModalDialog.style.display = "";
-			closeModal();
+			closeModal('.modal');
 		}, 4000);
 	}
 }

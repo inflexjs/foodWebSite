@@ -24,114 +24,14 @@
   ],
   "requests": [
     {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
+      "name": "POD Livonia [3PP]",
+      "phone": "+79377189577",
       "id": 1
     },
     {
-      "name": "store.skinless.ru",
-      "phone": "79275225070",
+      "name": "POD Livonia [3PP]",
+      "phone": "+79377189577",
       "id": 2
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
-      "id": 3
-    },
-    {
-      "name": "Голобородько Игнат Игоревич",
-      "phone": "89033278492",
-      "id": 4
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "89033278492",
-      "id": 5
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
-      "id": 6
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
-      "id": 7
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "5736741643",
-      "id": 8
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "89033278492",
-      "id": 9
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
-      "id": 10
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
-      "id": 11
-    },
-    {
-      "name": "Виталий",
-      "phone": "79275225070",
-      "id": 12
-    },
-    {
-      "name": "Виталий",
-      "phone": "5582589",
-      "id": 13
-    },
-    {
-      "name": "Виталий",
-      "phone": "5582589",
-      "id": 14
-    },
-    {
-      "name": "Виталий",
-      "phone": "79275225070",
-      "id": 15
-    },
-    {
-      "name": "bvision.com",
-      "phone": "9081089",
-      "id": 16
-    },
-    {
-      "name": "Виталий",
-      "phone": "79275225070",
-      "id": 17
-    },
-    {
-      "name": "Виталий",
-      "phone": "5582589",
-      "id": 18
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "+79275225070",
-      "id": 19
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "5736741643",
-      "id": 20
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "5736741643",
-      "id": 21
-    },
-    {
-      "name": "store.skinless.ru",
-      "phone": "5736741643",
-      "id": 22
     }
   ]
 }
